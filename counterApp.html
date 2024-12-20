@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+
+  <!-- External CSS -->
+   <style>
+    /* universal selector */
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+}
+
+#display-value {
+  font-size: 20px;
+  padding: 5px 15px;
+  border: 1px solid black;
+}
+
+#dec-btn {
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  right: 10px;
+  margin-top: 10px;
+}
+
+#inc-btn {
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  left: 10px;
+}
+
+#reset-value {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  margin-top: 10px;
+  left: 130px;
+}
+   </style>
+</head>
+<body>
+  <!-- Counter App Project -->
+  <div id="container">
+    <div>
+      <h1>Counter App</h1>
+      <!-- Decrement Button -->
+      <button id="dec-btn">Decrement Button</button>
+      <!-- Display Value -->
+      <span id="display-value">0</span>
+      <!-- Increment Button -->
+      <button id="inc-btn">Increment Button</button>
+      <!-- Reset Button --> <br>
+      <button id="reset-value">Reset Button</button>
+    </div>
+  </div>
+</body>
+<script>
+
+// Catching HTML elements:
+
+const decBtn = document.querySelector("#dec-btn");
+const incBtn = document.querySelector("#inc-btn");
+const displayValue = document.querySelector("#display-value");
+const resetValue = document.querySelector("#reset-value");
+
+// Applying Event:
+// Decrement button:
+
+decBtn.addEventListener("click", () => {
+   const value = Number(displayValue.innerText);
+   if(value > 0) {
+      displayValue.innerText = value - 1;
+   } else {
+    alert("negative value is not allowed.");
+   }
+})
+
+// Now Increment button:
+
+incBtn.addEventListener("click", () =>{
+   const value = Number(displayValue.innerText);
+   if(value >= 10) {
+    alert("10 + value is not allowed.");
+   } else {
+    displayValue.innerText = value + 1;
+   }
+})
+
+// Now, turn to reset value:
+
+const reset = () => {
+    const value = Number(displayValue.innerText);
+    resetValue.addEventListener("click", () => {
+        displayValue.innerText = 0;
+    })
+}
+reset();
+</script>
+</html>
